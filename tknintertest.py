@@ -3,7 +3,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 
 
-class Janela:
+class NewprojectApp:
     def __init__(self, master=None):
         # build ui
         toplevel1 = tk.Tk() if master is None else tk.Toplevel(master)
@@ -19,10 +19,11 @@ class Janela:
         entry1.delete("0", "end")
         entry1.insert("0", _text_)
         entry1.pack(side="top")
+        entry1.bind("<Motion>", self.entryMove, add="")
         button1 = ttk.Button(toplevel1)
-        button1.configure(text='OK')
+        button1.configure(takefocus=True, text='OK')
         button1.pack(side="top")
-        button1.bind("<ButtonPress>", self.la, add="")
+        button1.bind("<ButtonPress>", self.btClick, add="+")
 
         # Main widget
         self.mainwindow = toplevel1
@@ -30,12 +31,12 @@ class Janela:
     def run(self):
         self.mainwindow.mainloop()
 
-    def la(self, event=None):
-        soma = int(self.cvar.get()) + 10
-        print(type(soma))
-        self.cvar.set(str(soma))
+    def entryMove(self, event=None):
+        pass
 
+    def btClick(self, event=None):
+        self.cvar.set(int(self.cvar.get()) + 10)
 
 if __name__ == "__main__":
-    app = Janela()
+    app = NewprojectApp()
     app.run()
