@@ -4,7 +4,6 @@ import tkinter.ttk as ttk
 
 import db
 
-
 class TelamainApp:
     def __init__(self, master=None):
         # build ui
