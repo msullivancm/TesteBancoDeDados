@@ -2,9 +2,9 @@
 # Estudo de cadastro e consulta de clientes, em python+sqlite+Tkinter' 
 
 import sqlite3
-import ttk
-from Tkinter import *
-import tkMessageBox
+import tkinter as ttk
+from tkinter import *
+from tkinter import messagebox as tkMessageBox
 
 #Criar conexÃ£o e cursor
 con = sqlite3.connect('banco.db')
