@@ -2,7 +2,7 @@
 # Estudo de cadastro e consulta de clientes, em python+sqlite+Tkinter' 
 
 import sqlite3
-import tkinter as ttk
+import tkinter.ttk as ttk
 from tkinter import *
 from tkinter import messagebox as tkMessageBox
 
@@ -15,6 +15,8 @@ cur.execute("""CREATE TABLE IF NOT EXISTS clientes (
             telefone VARCHAR PRIMARY KEY,
             endereco VARCHAR,
             comp VARCHAR)""")
+cur.execute("""select tbl_name, [sql] from sqlite_schema where type = 'table'""")
+print(cur.fetchall())
 
 class main:
     def __init__(self,master):

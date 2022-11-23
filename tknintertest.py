@@ -49,8 +49,10 @@ class TelamainApp:
         self.mainwindow.mainloop()
 
     def btClick(self, event=None):
+        texto = ()
         self.text2.delete("0.0", "1000.1000")
-        self.text2.insert("0.0", db.connect()[0])
+        texto = db.tabela("Salaries")
+        self.text2.insert("0.0", texto)
 
 
 if __name__ == "__main__":
