@@ -1,8 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import tkinter as tk
 import tkinter.ttk as ttk
 
-import db
+from db import *
 
 class TelamainApp:
     def __init__(self, master=None):
@@ -49,9 +51,11 @@ class TelamainApp:
         self.mainwindow.mainloop()
 
     def btClick(self, event=None):
-        texto = ()
+        texto = ''
         self.text2.delete("0.0", "1000.1000")
-        texto = db.tabela("Salaries")
+        banco = ConectarDB()
+        #texto = db.tabela("Salaries")
+        texto = banco.consultar_registro_pela_id(self.entry1.get())
         self.text2.insert("0.0", texto)
 
 
